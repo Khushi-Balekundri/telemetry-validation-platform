@@ -45,11 +45,12 @@ speed = st.sidebar.select_slider(
 run = st.sidebar.button("▶ Run Replay")
 
 # ── Layout ────────────────────────────────────────────────
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3, col4, col5 = st.columns(5)
 metric_voltage    = col1.empty()
 metric_current    = col2.empty()
 metric_temp       = col3.empty()
 metric_capacity   = col4.empty()
+metric_power    = col5.empty()
 
 st.divider()
 
@@ -128,6 +129,7 @@ if run:
         metric_current.metric("Current (A)", f"{row['current_abs']:.3f}")
         metric_temp.metric("Temperature (°C)", f"{row['temperature_measured']:.1f}")
         metric_capacity.metric("Capacity (%)", f"{row['capacity_pct']:.1f}")
+        metric_power.metric("Power (W)", f"{row['voltage_measured'] * row['current_abs']:.2f}")
 
         icon = STATE_COLORS.get(state, '⚪')
         color = STATE_COLORS_HEX.get(state, '#FFFFFF')
