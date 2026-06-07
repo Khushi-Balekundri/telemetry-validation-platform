@@ -243,38 +243,31 @@ telemetry-platform/
 
 ├── data/
 │   └── raw/
-│
-├── processed/
+│   └── processed/
 │
 ├── config/
 │   └── rules.yaml
 │
-├── preprocessing/
-│   ├── schema_validator.py
-│   ├── timestamp_normalizer.py
-│   ├── unit_converter.py
-│   ├── interpolator.py
-│   ├── feature_engineering.py
-│   └── telemetry_processor.py
-│
-├── replay/
-│   └── replay_engine.py
+├── core/
+│   ├── __init__.py
+│   ├── processor.py
+│   ├── replay.py
+│   ├── classifier.py
+│   ├── validator.py
+│   └── anomaly.py
 │
 ├── services/
-│   ├── state_classifier.py
-│   ├── validation_engine.py
-│   ├── anomaly_detector.py
-│   ├── timeline_service.py
-│   └── report_generator.py
+│   ├── __init__.py
+│   ├── timeline.py
+│   └── report.py
 │
 ├── dashboard/
+│   ├── __init__.py
 │   ├── app.py
-│   └── charts.py
 │
-├── outputs/
-│   ├── reports/
-│   └── timelines/
-│
+├── requirements.txt
+├── main.py
+├── LICENSE
 └── README.md
 ```
 
@@ -341,6 +334,12 @@ streamlit run dashboard/app.py
 ```
 
 4. Select a cycle, set replay speed, click ▶ Run Replay
+
+**Optional — batch process all cycles without dashboard:**
+```bash
+python main.py
+```
+This processes all cycles headlessly and saves individual reports to `reports/`.
 ---
 
 ## Future Enhancements
