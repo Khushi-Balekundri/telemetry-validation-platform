@@ -1,0 +1,36 @@
+states:
+  NOMINAL:
+    voltage_min: 3.5
+    voltage_max: 4.2
+    current_max: 2.1
+    temperature_max: 35.0
+    capacity_min: 1.6
+
+  LOW_BATTERY:
+    voltage_max: 3.2
+
+  THERMAL_WARNING:
+    temperature_min: 35.0
+
+  DEGRADED:
+    capacity_max: 1.6
+    capacity_min: 1.4
+
+  EOL:
+    capacity_max: 1.4
+
+anomaly_thresholds:
+  voltage_drop_pct: 15
+  temperature_spike: 5.0
+  current_spike: 0.5
+
+validation_rules:
+  HIGH_LOAD:
+    implies:
+      current_abs_min: 1.9
+  LOW_BATTERY:
+    implies:
+      voltage_measured_max: 3.2
+  THERMAL_WARNING:
+    implies:
+      temperature_measured_min: 35.0
