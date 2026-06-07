@@ -83,7 +83,7 @@ Download the NASA Battery Dataset from the official source:
 - **Kaggle mirror** (easier): [NASA Battery Dataset on Kaggle](https://www.kaggle.com/datasets/patrickfleith/nasa-battery-dataset)
 - **Official NASA source**: [NASA PCoE Datasets](https://www.nasa.gov/content/prognostics-center-of-excellence-data-set-repository)
 
-After downloading, extract the discharge CSV and place it at:
+After downloading, extract the discharge CSV and place it at: data/raw/discharge_data.csv
 ---
 
 ## Data Processing Pipeline
@@ -98,27 +98,9 @@ Validates required telemetry channels and data quality requirements.
 
 Converts timestamps into a standardized internal format.
 
-### Unit Standardization
-
-Converts measurements into consistent engineering units.
-
-Examples:
-
-* Current: mA → A
-* Temperature: °F → °C
-* Voltage: standardized to V
-
-### Interpolation
-
-Handles missing samples and irregular sampling intervals through resampling and interpolation.
-
 ### Feature Engineering
 
-Derives additional operational metrics such as:
-
-* Power consumption
-* Temperature rate of change
-* Voltage drop rate
+Derives additional operational metrics.
 
 ---
 
