@@ -242,7 +242,7 @@ and anomaly events marked directly on the plot.
 telemetry-platform/
 
 ├── data/
-│   └── raw/
+│   ├── raw/
 │   └── processed/
 │
 ├── config/
