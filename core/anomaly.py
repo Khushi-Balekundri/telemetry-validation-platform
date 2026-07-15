@@ -1,4 +1,3 @@
-# core/anomaly.py
 from core.processor import load_config
 
 class AnomalyDetector:

@@ -1,4 +1,3 @@
-# main.py
 from core.processor import load_data, get_cycle_ids
 from core.replay import ReplayEngine
 from core.classifier import StateClassifier

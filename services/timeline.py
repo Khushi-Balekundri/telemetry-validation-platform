@@ -1,5 +1,3 @@
-# services/timeline.py
-
 class TimelineService:
     def __init__(self):
         self.events = []

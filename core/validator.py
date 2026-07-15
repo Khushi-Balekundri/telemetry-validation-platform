@@ -1,4 +1,3 @@
-# core/validator.py
 from core.processor import load_config
 
 class ValidationEngine:

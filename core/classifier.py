@@ -1,4 +1,3 @@
-# core/classifier.py
 from core.processor import load_config
 
 class StateClassifier:
