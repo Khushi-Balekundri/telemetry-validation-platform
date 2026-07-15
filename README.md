@@ -213,27 +213,18 @@ Events are visualized directly on telemetry charts using annotations and timelin
 
 The Streamlit dashboard provides:
 
-### Live Telemetry
-
-* Voltage
-* Current
-* Temperature
-* Derived Power
-
 ### Operational Status
 
 * Current State
 * Validation Status
 * Active Anomalies
+<img width="1334" height="513" alt="top" src="https://github.com/user-attachments/assets/ba98c091-b5a8-47b4-abc5-03e9863ec8de" />
 
-### Annotated Timeline Visualization
 
-Interactive charts displaying:
-
-* Telemetry trends
-* State transitions
-* Validation failures
-* Anomaly events
+### Live Telemetry Chart with Event Annotations
+Interactive chart displaying telemetry trends with state transitions 
+and anomaly events marked directly on the plot.
+<img width="955" height="414" alt="grapgh" src="https://github.com/user-attachments/assets/d3f94635-1269-4ca5-961e-238b5cbb0372" />
 
 ### Mission Summary
 
@@ -241,6 +232,7 @@ Interactive charts displaying:
 * Validation failures
 * State transitions
 * Replay statistics
+<img width="926" height="459" alt="rep" src="https://github.com/user-attachments/assets/973292e2-301b-404a-91e1-b442cbd7954f" />
 
 ---
 
@@ -250,39 +242,32 @@ Interactive charts displaying:
 telemetry-platform/
 
 ├── data/
-│   └── raw/
-│
-├── processed/
+│   ├── raw/
+│   └── processed/
 │
 ├── config/
 │   └── rules.yaml
 │
-├── preprocessing/
-│   ├── schema_validator.py
-│   ├── timestamp_normalizer.py
-│   ├── unit_converter.py
-│   ├── interpolator.py
-│   ├── feature_engineering.py
-│   └── telemetry_processor.py
-│
-├── replay/
-│   └── replay_engine.py
+├── core/
+│   ├── __init__.py
+│   ├── processor.py
+│   ├── replay.py
+│   ├── classifier.py
+│   ├── validator.py
+│   └── anomaly.py
 │
 ├── services/
-│   ├── state_classifier.py
-│   ├── validation_engine.py
-│   ├── anomaly_detector.py
-│   ├── timeline_service.py
-│   └── report_generator.py
+│   ├── __init__.py
+│   ├── timeline.py
+│   └── report.py
 │
 ├── dashboard/
+│   ├── __init__.py
 │   ├── app.py
-│   └── charts.py
 │
-├── outputs/
-│   ├── reports/
-│   └── timelines/
-│
+├── requirements.txt
+├── main.py
+├── LICENSE
 └── README.md
 ```
 
@@ -349,6 +334,12 @@ streamlit run dashboard/app.py
 ```
 
 4. Select a cycle, set replay speed, click ▶ Run Replay
+
+**Optional — batch process all cycles without dashboard:**
+```bash
+python main.py
+```
+This processes all cycles headlessly and saves individual reports to `reports/`.
 ---
 
 ## Future Enhancements
@@ -360,5 +351,3 @@ streamlit run dashboard/app.py
 * Automated alerting
 * Historical replay comparison
 
-```
-```
